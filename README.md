@@ -32,5 +32,25 @@ git push origin :rototype/unstable_stuff # deletes remote branch "rototype/unsta
 Retrieve a file from *stash*
 
 ```sh
-git checkout stash@{0} -- _{{filename}}_
+git checkout stash@{0} -- _{{file_name}}_
 ```
+Stash all tracked & untracked files
+
+```sh
+git stash -u
+```
+
+##  Commiting
+
+Commit files interactively by line
+```sh
+git add -p --
+git add -p filename
+```
+Commit changes
+```sh
+git commit -m "commit message"
+```
+
+
+
