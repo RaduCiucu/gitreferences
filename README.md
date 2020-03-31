@@ -25,7 +25,7 @@ git checkout :/Commit message
 git checkout -b production # creates new branch prod and does checkout of production
 git merge prototype/new_stuff # merges the branch "prototype/new_stuff" into the current branch
 git branch -d prototype/unstable_stuff # deletes local branch "prototype/unstable_stuff"
-git push origin :rototype/unstable_stuff # deletes remote branch "rototype/unstable_stuff" from the "origin" remote
+git push origin :prototype/unstable_stuff # deletes remote branch "prototype/unstable_stuff" from the "origin" remote
 ```
 
 ## Stash
