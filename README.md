@@ -1,6 +1,6 @@
 # Git References
 
-Here is a short list of **GIT** stuff that I use daily while working on projects:
+Here is a short list of **GIT** snippets that I use daily while working on projects:
   - History
   - Branching
   - Stash
@@ -12,7 +12,9 @@ Here is a short list of **GIT** stuff that I use daily while working on projects
   - Recovery
 
 ## Git Navigation History
+
 Second Tab:
+
 ```sh
 git log ; git lg
 git checkout master
@@ -20,7 +22,9 @@ git checkout HEAD^2
 git checkout “HEAD@{2 weeks ago}”
 git checkout :/Commit message
 ```
+
 ## Branching
+
 ```sh
 git checkout -b production # creates new branch prod and does checkout of production
 git merge prototype/new_stuff # merges the branch "prototype/new_stuff" into the current branch
@@ -29,6 +33,7 @@ git push origin :prototype/unstable_stuff # deletes remote branch "prototype/uns
 ```
 
 ## Stash
+
 Retrieve a file from *stash*
 
 ```sh
@@ -40,7 +45,7 @@ Stash all tracked & untracked files
 git stash -u
 ```
 
-##  Commiting
+##  Committing
 
 Commit files interactively by line
 ```sh
@@ -56,6 +61,7 @@ git commit -m "commit message"
 
 Trace nasty commits using git bisect
 ### Manually
+
 ```sh
 git bisect reset # only needed after a bisect
 git bisect start
@@ -66,7 +72,9 @@ git bisect bad <revision>
 # git will checkout the next revision to check
 git bisect (good | bad)
 ```
+
 ### Automated
+
 ```sh
 git bisect start
 git bisect good <revision>
@@ -96,11 +104,13 @@ export GIT_COMMITTER_EMAIL="$m"
 ```
 
 Remove filter-branch
+
 ```sh
 git update-ref -d refs/original/refs/heads/master
 ```
 
 ## Pretty Git Config
+This is a GIT configuration file that has "prettified" logs & authoring
 ```sh
 [alias]
     bw = blame -w -M
@@ -145,6 +155,7 @@ git update-ref -d refs/original/refs/heads/master
 ```
 
 ## Cloning
+
 ```sh
 git clone git@github.com:raduciucu/gitreferences.git
 ```
@@ -154,13 +165,15 @@ Get all remote branches as local tracking branches except master and HEAD since 
 ```sh
 for branch in 'git branch -a | grep remotes/origin | grep -v HEAD | grep -v master'; do git branch --track ${branch##remotes/origin/} $branch; done
 ```
-Fetch and pull the remote tracking branches
+
+### Fetch and pull the remote tracking branches
+
  ```sh
 git fetch --all
 git pull --all
 ```
-## Recovering the local branch from a force push
 
+## Recovering the local branch from a force push
 This will remove all commits previously on master and all commits done by yourself which are not yet pushed.
 
 ```sh
@@ -168,14 +181,17 @@ git fetch
 git reset origin/master --hard
 ```
 
-### Preserve the changes and commit them again
+Preserve the changes and commit them again
 This will move all changes to the working directory. All commits are done manually.
+
 ```sh
 git fetch
 git reset origin/master --soft
 ```
-### Interactive rebase. 
-In this case you have to pick the commits you want to keep.
+
+### Interactive Rebase. 
+In this case you have to select which commits to keep.
+
 ```sh
 git fetch
 git rebase -i origin/master
